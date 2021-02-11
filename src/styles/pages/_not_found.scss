@@ -1,0 +1,39 @@
+.not-found {
+  @include flexCenter;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $color-not-found;
+  color: #fff;
+  font-size: 100%;
+  line-height: 1.5;
+  & > .button {
+    font-weight: 300;
+    color: $color-white;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid $color-white;
+    padding: 0.8em;
+    border-radius: 3px;
+    float: left;
+    margin: 80px;
+    transition: all 0.3s linear;
+  }
+
+  & > .button:hover {
+    background-color: $color-white;
+    color: $color-not-found;
+  }
+
+  & > p {
+    font-size: 2em;
+    text-align: center;
+    font-weight: 100;
+  }
+
+  & > h1 {
+    text-align: center;
+    font-size: 15em;
+    font-weight: 100;
+  }
+}

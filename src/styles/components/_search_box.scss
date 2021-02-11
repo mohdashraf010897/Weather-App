@@ -1,0 +1,45 @@
+.search-box {
+  display: flex;
+  background: $color-white;
+  width: 57vw;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 1px 11px $color-grey-light;
+  margin-bottom: -1rem;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+
+  @include respond(phone) {
+    width: 90vw;
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 8px -1px $color-grey-dark;
+    border: 2px solid #88bbda;
+  }
+  &__input {
+    border: none;
+    height: 100%;
+    width: 100%;
+    color: $color-black;
+    font-size: 2.4rem;
+    letter-spacing: 0.1em;
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+  & > img {
+    position: absolute;
+    height: 26px;
+    top: 9px;
+    &:first-of-type {
+      left: 5px;
+    }
+
+    &:nth-of-type(2) {
+      right: 9px;
+      cursor: pointer;
+    }
+  }
+}

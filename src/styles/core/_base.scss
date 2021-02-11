@@ -1,0 +1,79 @@
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+}
+
+html {
+  font-family: sans-serif;
+  //This defines what 1 rem is equal to
+  //Thus we did not include it in the typography.scss file
+  font-size: 62.5%;
+  // 1rem = 10px
+  //
+  @include respond(tab-land) {
+    //width < 900
+    font-size: 56.25%; //1 rem = 9px
+  }
+
+  @include respond(tab-port) {
+    //width< 600
+    font-size: 50%; // 1 rem = 8px
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1 rem = 12px
+  }
+}
+
+body {
+  box-sizing: border-box;
+  color: $color-black;
+  background-color: $color-white;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+main {
+  @include flexCenter;
+  flex-direction: column;
+  padding: 50px;
+  grid-gap: 2rem;
+
+  @include respond(tab-land) {
+    padding: 25px;
+  }
+
+  @include respond(phone) {
+    padding: 15px;
+  }
+}
+
+::selection {
+  background-color: $color-main-background;
+  color: $color-white;
+}
+
+.pac-container {
+  font-family: inherit;
+  border-radius: 10px;
+  box-shadow: 0 1px 11px $color-grey-light;
+}
+.pac-item {
+  line-height: 35px;
+}
+.pac-icon {
+  background-position-x: 19px !important;
+}
+::-webkit-scrollbar {
+  height: 0px;
+  width: 5px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(147, 197, 253, 0.7); /* color of the scroll thumb */
+}

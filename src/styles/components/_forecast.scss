@@ -1,0 +1,219 @@
+.forecast {
+  @include flexCenter;
+  justify-content: flex-start;
+  flex-direction: column;
+  grid-gap: 2.5rem;
+  padding: 10px;
+  width: 94vw;
+
+  .forecast-cards {
+    @include flexCenter;
+    justify-content: space-between;
+    width: 100%;
+    overflow-x: auto;
+    grid-gap: 1px;
+
+    .forecast-card {
+      @include flexCenter;
+      flex-direction: column;
+      justify-content: space-around;
+      flex-shrink: 0;
+      height: 110px;
+      width: 80px;
+      background-color: $color-white;
+      cursor: pointer;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid $color-white;
+
+      &.active-card {
+        border: 2px solid #43acea;
+        background-color: #fffdf5;
+      }
+
+      &:hover {
+        background-color: #fffdf5;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      &:active {
+        border: 1px solid #43acea;
+        background-color: #fffdf5;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      h5#day {
+        color: $color-black;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+      #temperature {
+        @include flexCenter;
+        grid-gap: 0.5rem;
+        margin-top: -8px;
+        span {
+          &:first-child {
+            font-weight: 600;
+          }
+          img {
+            margin-right: 5px;
+            height: 25px;
+          }
+
+          p {
+            font-size: 1.4rem;
+          }
+        }
+      }
+
+      #condition-indicator {
+        @include flexCenter;
+        flex-direction: column;
+        justify-content: unset;
+
+        & > img {
+          height: 24px;
+          width: auto;
+          margin-bottom: 1rem;
+        }
+
+        & > p {
+          color: #929293;
+          font-size: 1.6rem;
+          text-transform: capitalize;
+        }
+      }
+
+      #temperature {
+        @include flexCenter;
+        grid-gap: 0.5rem;
+        span {
+          img {
+            margin-right: 5px;
+            height: 25px;
+          }
+
+          p {
+            font-size: 1.4rem;
+          }
+        }
+      }
+
+      #humidity-pressure {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-detail-view {
+    @include flexCenter;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 1.5rem;
+    padding: 3.6rem;
+
+    @include respond(tab-land) {
+      padding: 1.6rem;
+    }
+    h2 {
+      width: max-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 7rem;
+      font-weight: 700;
+      height: 60px;
+      margin: 4px auto 32px 17px;
+      img {
+        margin-left: 2rem;
+        height: 60px;
+        position: relative;
+        top: -7px;
+      }
+
+      @include respond(phone) {
+        font-size: 6rem;
+        margin: 10px auto 12px 2px;
+      }
+    }
+
+    &__charts {
+      display: flex;
+      justify-content: space-between;
+      // flex-wrap: wrap;
+      grid-gap: 2rem;
+      width: 100%;
+      height: 100%;
+      @include respond(tab-land) {
+        flex-wrap: wrap;
+      }
+      ::-webkit-scrollbar {
+        display: none !important;
+      }
+
+      &--temperature {
+        height: 100%;
+        flex-basis: 50%;
+        @include respond(tab-land) {
+          flex-basis: 100%;
+        }
+      }
+
+      &--sun-rise-set {
+        height: 100%;
+        flex-basis: 44%;
+        position: relative;
+        @include respond(tab-land) {
+          flex-basis: 100%;
+        }
+        .pressure-humidity-cards {
+          @include flexCenter;
+          width: 100%;
+          grid-gap: 2rem;
+          margin-bottom: 3rem;
+          &__item {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            flex: 1;
+            font-size: 1.6rem;
+            background-color: #f5faff;
+            border-radius: 3px;
+            h3 {
+              margin-bottom: 0.9rem;
+            }
+            p {
+              font-weight: 500;
+            }
+          }
+        }
+
+        .sunrise-sunset {
+          flex: 1;
+          @include flexCenter;
+          justify-content: space-between;
+          div {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.6rem;
+            margin-bottom: 0.9rem;
+
+            h3 {
+              line-height: 2.3rem;
+            }
+            p {
+              color: #7a7a7a;
+              line-height: 2.3rem;
+            }
+
+            &#sunset {
+              align-items: flex-end;
+            }
+          }
+        }
+      }
+    }
+  }
+}
