@@ -5,6 +5,7 @@ const {
   SET_CURRENT_PLACE,
   FETCH_FORECAST_SUCCESS,
   SET_LOADING,
+  SET_ERROR_MESSAGE,
 } = WeatherControlActionTypes;
 
 const INITIAL_STATE = {
@@ -12,7 +13,7 @@ const INITIAL_STATE = {
   activeDay: moment().format("dddd"),
   forecastData: null,
   loading: true,
-  error: null,
+  errorMessage: "",
 };
 
 export const weatherControlReducer = (state = INITIAL_STATE, action) => {
@@ -20,20 +21,22 @@ export const weatherControlReducer = (state = INITIAL_STATE, action) => {
     case SET_CURRENT_PLACE:
       return { ...state, currentPlace: action.payload, loading: false };
 
-    case SET_LOADING:
-      return { ...state, loading: action.payload };
-
     case FETCH_FORECAST_SUCCESS:
       return {
         ...state,
         loading: false,
-        error: false,
+        errorMessage: "",
         forecastData: action.payload,
       };
 
     case SET_ACTIVE_DAY:
       return { ...state, activeDay: action.payload, loading: false };
 
+    case SET_LOADING:
+      return { ...state, loading: action.payload };
+
+    case SET_ERROR_MESSAGE:
+      return { ...state, errorMessage: action.payload };
     default:
       return state;
   }

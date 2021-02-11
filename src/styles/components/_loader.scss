@@ -33,3 +33,9 @@
     opacity: 0;
   }
 }
+
+h4.error-message {
+  color: $color-black;
+  font-size: 3rem;
+  @include absCenter;
+}

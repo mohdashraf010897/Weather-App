@@ -7,9 +7,15 @@ const {
   SET_CURRENT_PLACE,
   FETCH_FORECAST_SUCCESS,
   SET_LOADING,
+  SET_ERROR_MESSAGE,
 } = WeatherControlActionTypes;
 
 const setLoading = (bool) => ({ type: SET_LOADING, payload: bool });
+
+const setErrorMessage = (errorMessage) => ({
+  type: SET_ERROR_MESSAGE,
+  payload: errorMessage,
+});
 
 const setCurrentPlace = (
   placeObj = { lat: 20, lng: 20, name: "something" }
@@ -51,8 +57,10 @@ const fetchForeCast = (placeObj) => async (dispatch) => {
             );
           },
           function () {
-            alert(
-              "Failed to fetch your co-ordinates, Search for a location below!!!"
+            dispatch(
+              setErrorMessage(
+                "Failed to fetch your co-ordinates, Search for a location above!!!"
+              )
             );
           }
         );
@@ -64,12 +72,15 @@ const fetchForeCast = (placeObj) => async (dispatch) => {
       dispatch(setForecastData(rawForecastData));
     }
   } catch (error) {
-    console.log(error);
+    dispatch(
+      setErrorMessage("Something Wrong Happened! Please Try Again.", error)
+    );
   }
 };
 
 export default {
   setLoading,
+  setErrorMessage,
   setActiveDay,
   setForecastData,
   fetchForeCast,
