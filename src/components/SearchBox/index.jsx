@@ -51,9 +51,6 @@ const SearchBox = ({
   fetchForeCast = () => {
     console.log("Supply A Method");
   },
-  setErrorMessage = (e) => {
-    console.log("I am used for setting error");
-  },
   currentPlace = { lat: NaN, lng: NaN, name: "" },
 }) => {
   const [placeObj, setPlaceObj] = useState({ name: "", lat: null, lng: null });
@@ -65,14 +62,10 @@ const SearchBox = ({
   };
 
   useEffect(() => {
-    try {
-      loadScript(
-        `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`,
-        () => handleScriptLoad(selectSuggestionHandler, autoCompleteRef)
-      );
-    } catch (error) {
-      setErrorMessage(error);
-    }
+    loadScript(
+      `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`,
+      () => handleScriptLoad(selectSuggestionHandler, autoCompleteRef)
+    );
   }, []);
 
   useEffect(() => {
@@ -106,8 +99,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchForeCast: (placeObj) =>
       dispatch(WeatherControlActions.fetchForeCast(placeObj)),
-    setErrorMessage: (errorMessage) =>
-      dispatch(WeatherControlActions.setErrorMessage(errorMessage)),
   };
 };
 

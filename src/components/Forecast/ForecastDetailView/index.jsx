@@ -103,7 +103,7 @@ const ForecastDetailView = ({
             <stop offset="25%" stopColor="#fcdea0" stopOpacity={1} />
             <stop
               offset={`${
-                calculateDayPassPercent() > 0
+                calculateDayPassPercent() <= 50 && calculateDayPassPercent() > 0
                   ? calculateDayPassPercent() + 25
                   : 72
               }%`}
