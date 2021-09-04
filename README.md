@@ -8,7 +8,9 @@
 2. Install Packages using yarn/ npm.
 3. Run the app using "npm start" on localhost:3000, bydefault.
 
-## Make an .env file with two key variables, namely, REACT_APP_GOOGLE_API_KEY,REACT_APP_OPEN_WEATHER_API_KEY and assign your keys to run the app
+> Make an `.env` file with two key variables and assign your keys to run the app, namely, 
+> - REACT_APP_GOOGLE_API_KEY = _your-google-api-key_
+> - REACT_APP_OPEN_WEATHER_API_KEY = _your-open-weather-api-key_
 
 ## Quick Features
 
@@ -21,5 +23,5 @@
 7. Features Google Places autocomplete to provide accurate results based on lat-lng.
 8. Openweather api version - onecall used for 7 days forecast and hourly temperature readings.
 
-### I have put genuine effort into this, any questions are always WELCOME.
+** I have put genuine effort into this, any questions are always WELCOME.**
 
